@@ -1,0 +1,3 @@
+require board=c1
+require version-bootloader=I777XXX
+require version-baseband=I777XXX

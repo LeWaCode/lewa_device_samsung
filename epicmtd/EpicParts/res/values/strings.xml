@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Epic 4G Settings</string>
+
+    <!-- Page Headers -->
+    <string name="general_title">GENERAL</string>
+
+    <string name="category_touchkey_title">Capacitive Buttons</string>
+    <string name="touchkey_led_title_head">Disable Touchkey Lights</string>
+    <string name="touchkey_led_summary_head">The capacitive touchkey backlights will not light after timeout unless pressed.</string>
+    <string name="touchkey_led_toast_message">Preference change will take effect after the screen is turned off and on.</string>
+
+</resources>

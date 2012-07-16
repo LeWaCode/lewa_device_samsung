@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Capacitive touchkey backlight disable -->
+    <PreferenceCategory android:key="category_touchkey"
+        android:title="@string/category_touchkey_title">
+        <CheckBoxPreference android:key="touchkey_led"
+            android:title="@string/touchkey_led_title_head"
+            android:summary="@string/touchkey_led_summary_head" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

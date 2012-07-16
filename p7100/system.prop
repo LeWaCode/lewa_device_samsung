@@ -1,0 +1,4 @@
+#
+# system.prop for p7100
+#
+ro.cwm.prefer_tar=true
