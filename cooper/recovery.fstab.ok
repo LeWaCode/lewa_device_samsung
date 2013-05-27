@@ -1,0 +1,10 @@
+# mount		fstype	device			[device2]		[fstype2]	[fsoptions]					[fsoptions2]
+
+/boot		bml	boot			NULL			NULL		NULL						NULL
+/recovery	bml	recoveryonly		NULL			NULL		NULL						NULL
+/cache		rfs	/dev/block/stl14	NULL			ext4		rw,check=no,nosuid,nodev,noatime,nodiratime	rw,noatime,nodiratime,noauto_da_alloc,barrier=1
+/data		rfs	/dev/block/stl13	NULL			ext4		rw,check=no,nosuid,nodev,noatime,nodiratime	rw,noatime,nodiratime,noauto_da_alloc,barrier=1
+/system		rfs	/dev/block/stl12	NULL			ext4		rw,check=no,noatime,nodiratime			rw,noatime,nodiratime,noauto_da_alloc,barrier=1
+/sdcard		vfat	/dev/block/mmcblk0p1	/dev/block/mmcblk0	NULL		NULL						NULL
+/sd-ext		ext4	/dev/block/mmcblk0p2	NULL			NULL		NULL						NULL
+

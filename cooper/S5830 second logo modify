@@ -1,0 +1,13 @@
+1.把需要制作为第二屏的png图片改为logo.png放到lewaos1.0代码根目录
+
+2.打开终端输入：
+. build/envsetup.sh && lunch cyanogen_cooper-eng && make rgb2565 -j4
+此步骤用于生成转换S5830专用的rgb2565程序
+
+3.使用ImageMagick自带的convert命令，进行raw格式转换
+convert -depth 8 logo.png rgb:logo.raw
+
+4.使用rgb2565工具,对raw文件进行rle565格式转换
+$out/host/linux-x86/bin/rgb2565 -rle <logo.raw >COOPER.rle
+
+5.把生成COOPER.rle复制到device/samsung/cooper目录下

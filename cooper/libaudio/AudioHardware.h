@@ -49,13 +49,13 @@ namespace android {
 #define EQ_MAX_BAND_NUM 12
 
 #define ADRC_ENABLE  0x0001
-#define ADRC_DISABLE 0xFFFE
+#define ADRC_DISABLE 0x0000
 #define EQ_ENABLE    0x0002
-#define EQ_DISABLE   0xFFFD
+#define EQ_DISABLE   0x0000
 #define RX_IIR_ENABLE  0x0004
-#define RX_IIR_DISABLE 0xFFFB
+#define RX_IIR_DISABLE 0x0000
 #define MBADRC_ENABLE  0x0010
-#define MBADRC_DISABLE 0xFFEF
+#define MBADRC_DISABLE 0x0000
 
 #define AGC_ENABLE     0x0001
 #define NS_ENABLE      0x0002
@@ -144,7 +144,7 @@ enum tty_modes {
 #define CODEC_TYPE_PCM 0
 #define AUDIO_HW_NUM_OUT_BUF 2  // Number of buffers in audio driver for output
 // TODO: determine actual audio DSP and hardware latency
-#define AUDIO_HW_OUT_LATENCY_MS 80  // Additionnal latency introduced by audio DSP and hardware in ms
+#define AUDIO_HW_OUT_LATENCY_MS 50  // Additionnal latency introduced by audio DSP and hardware in ms
 
 #define AUDIO_HW_IN_SAMPLERATE 8000                 // Default audio input sample rate
 #define AUDIO_HW_IN_CHANNELS (AudioSystem::CHANNEL_IN_MONO) // Default audio input channel mask
@@ -165,9 +165,6 @@ public:
 
     virtual status_t    setVoiceVolume(float volume);
     virtual status_t    setMasterVolume(float volume);
-#ifdef HAVE_FM_RADIO
-    virtual status_t    setFmVolume(float volume);
-#endif
     virtual status_t    setMode(int mode);
 
     // mic mute
@@ -306,11 +303,8 @@ private:
             msm_snd_endpoint *mSndEndpoints;
             int mNumSndEndpoints;
             int mCurSndDevice;
-	    int mFmRadioEnabled;
-	    int mFmPrev;
-	    int mFmVolume;
+            bool mFmRadioEnabled;
             int m7xsnddriverfd;
-            int fmfd;
             bool        mDualMicEnabled;
             int         mTtyMode;
 
@@ -325,4 +319,3 @@ private:
 }; // namespace android
 
 #endif // ANDROID_AUDIO_HARDWARE_MSM72XX_H
-
